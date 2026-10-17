@@ -1,11 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent, type ReactNode } from "react";
 import {
-  Mail, Phone, Linkedin, MapPin, ArrowUp, Menu, X, ArrowRight, ArrowDown, Cpu, Shield, Map, Plane,
-  Layers, ScanLine, Bot, GraduationCap, Award, BookOpen, ExternalLink, ChevronDown, Languages, Send,
+  Mail, Phone, Linkedin, MapPin, ArrowUp, Menu, X, Brain, Eye, Server, Cpu, Shield, Map, Plane,
+  Layers, ScanLine, Bot, GraduationCap, Award, BookOpen, ExternalLink, ChevronDown, User, Languages, Send,
 } from "lucide-react";
-import heroArtwork from "@/assets/ai-core.jpg";
-import { Button } from "@/components/ui/button";
 import {
   profile, nav, expertise, journey, skills, experience, projects, filters, certifications, languages,
   type Filter, type Project,
@@ -85,44 +83,74 @@ function Header() {
   );
 }
 
+function Badge({ className, children, label }: { className: string; children: ReactNode; label: string }) {
+  return (
+    <div className={`absolute flex h-16 w-16 items-center justify-center rounded-xl shadow-float animate-floaty ${className}`} title={label} aria-label={label}>
+      {children}
+    </div>
+  );
+}
+
 function Hero() {
   return (
-    <section id="home" className="hero-modern relative isolate overflow-hidden scroll-mt-20">
-      <img src={heroArtwork} alt="" aria-hidden="true" width={1536} height={1024} fetchPriority="high" className="hero-art absolute inset-0 -z-10 h-full w-full object-cover" />
-      <div className="relative mx-auto max-w-6xl px-5 pt-14 pb-10 md:pt-20 md:pb-14">
-        <div className="hero-copy max-w-xl">
-          <div className="mb-7 flex flex-wrap items-center gap-3 text-xs font-medium text-hero-muted">
-            <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-primary" /> AI & SOFTWARE ENGINEERING</span>
-            <span className="h-3 w-px bg-hero-line" />
-            <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {profile.location}</span>
-          </div>
-          <p className="mb-2 font-display text-lg text-hero-muted">Hello, I'm</p>
-          <h1 className="font-display text-5xl font-semibold leading-[1.08] text-hero-ink sm:text-6xl lg:text-7xl">
-            Akhil Sai<br />Ravi Kumar<span className="text-primary">.</span>
+    <section id="home" className="relative overflow-hidden bg-hero">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 md:grid-cols-2 md:py-28">
+        <div>
+          <p className="font-display text-lg font-medium text-primary">Hello</p>
+          <h1 className="mt-2 font-display text-5xl font-light leading-tight text-navy md:text-6xl">
+            I'm <span className="font-bold">{profile.name}</span>
           </h1>
-          <p className="mt-5 font-display text-xl font-medium text-hero-ink sm:text-2xl">Senior AI & Software Engineer</p>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-hero-muted">
-            Building intelligent systems for real-world impact. From generative AI and agentic systems to computer vision and production-ready machine learning.
+          <p className="mt-4 font-display text-2xl text-navy">
+            Senior AI & Software <span className="text-primary">Engineer</span>
           </p>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <Button asChild size="lg" className="h-12 gap-3 px-6"><a href="#projects">Explore my projects <ArrowRight /></a></Button>
-            <Button asChild variant="outline" size="lg" className="h-12 border-hero-line bg-transparent px-6 text-hero-ink"><a href="#contact">Let's connect <ArrowUp className="rotate-45" /></a></Button>
+          <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+            <MapPin className="h-4 w-4" /> {profile.location}
+          </p>
+          <p className="mt-6 font-display text-xl font-semibold text-foreground">
+            Building Intelligent AI Systems for Real-World Impact.
+          </p>
+          <p className="mt-3 max-w-lg leading-relaxed text-muted-foreground">
+            Senior AI & Software Engineer specializing in Generative AI, Agentic Systems, Computer Vision, and Production-Ready Machine Learning — with 8+ years turning complex requirements into scalable, reliable systems.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#projects" className="rounded-full bg-navy px-7 py-3 text-sm font-semibold text-navy-foreground transition-transform hover:-translate-y-0.5">
+              Explore My Projects
+            </a>
+            <a href="#contact" className="rounded-full border border-navy px-7 py-3 text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-navy-foreground">
+              Contact Me
+            </a>
+            <div className="flex items-center gap-3 pl-1">
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-navy hover:text-primary"><Linkedin className="h-5 w-5" /></a>
+              <a href={`mailto:${profile.email}`} aria-label="Email" className="text-navy hover:text-primary"><Mail className="h-5 w-5" /></a>
+            </div>
           </div>
-          <div className="mt-7 flex items-center gap-4 text-hero-muted">
-            <Button asChild variant="ghost" size="icon" className="h-8 w-8" aria-label="LinkedIn" title="LinkedIn"><a href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin /></a></Button>
-            <Button asChild variant="ghost" size="icon" className="h-8 w-8" aria-label="Email" title="Email"><a href={`mailto:${profile.email}`}><Mail /></a></Button>
-            <span className="h-4 w-px bg-hero-line" />
-            <span className="text-xs">Engineering ideas into reality.</span>
+          <div className="mt-10 flex flex-wrap gap-2">
+            {["GenAI", "Computer Vision", "MLOps", "Edge AI"].map((t) => (
+              <span key={t} className="rounded-full bg-accent px-4 py-1.5 text-xs font-semibold text-accent-foreground">{t}</span>
+            ))}
           </div>
         </div>
-        <div className="mt-10 flex items-end justify-between gap-5 border-t border-hero-line pt-6 md:mt-12">
-          <div className="flex flex-wrap gap-x-10 gap-y-5 sm:gap-x-14">
-            <div><p className="font-display text-3xl font-semibold text-hero-ink">8<span className="text-primary">+</span></p><p className="mt-1 text-xs text-hero-muted">Years of experience</p></div>
-            <div><p className="font-display text-3xl font-semibold text-hero-ink">AI <span className="text-primary">→</span> Production</p><p className="mt-1 text-xs text-hero-muted">Architecture · Development · Deployment</p></div>
+
+        <div className="relative mx-auto aspect-square w-full max-w-md">
+          <svg className="absolute inset-0 h-full w-full text-primary/30" viewBox="0 0 400 400" fill="none" aria-hidden>
+            <path d="M80 60 C 200 20, 340 40, 360 160 S 330 360, 200 370 S 30 300, 40 190 S 60 90, 80 60Z" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M100 80 C 210 50, 320 70, 340 170 S 300 340, 200 345 S 60 290, 65 190 S 80 110, 100 80Z" stroke="currentColor" strokeWidth="1" />
+          </svg>
+          <div className="absolute inset-[14%] rounded-full bg-ring p-1.5 shadow-card">
+            <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-full bg-soft text-muted-foreground">
+              <User className="h-20 w-20 text-primary/50" />
+              <span className="text-xs font-medium">Portrait coming soon</span>
+            </div>
           </div>
-          <a href="#about" aria-label="Scroll to about" className="hidden items-center gap-3 text-xs font-medium text-hero-muted sm:flex">More about me <ArrowDown className="h-5 w-5" /></a>
+          <Badge className="left-[12%] top-[2%] bg-navy text-navy-foreground" label="Generative AI"><Brain className="h-8 w-8" /></Badge>
+          <Badge className="right-0 top-[22%] bg-primary text-primary-foreground [animation-delay:1.5s]" label="Computer Vision"><Eye className="h-8 w-8" /></Badge>
+          <Badge className="bottom-[22%] left-0 bg-card text-primary [animation-delay:3s]" label="Edge AI"><Cpu className="h-8 w-8" /></Badge>
+          <Badge className="bottom-[4%] right-[14%] bg-card text-navy [animation-delay:2s]" label="MLOps"><Server className="h-8 w-8" /></Badge>
         </div>
       </div>
+      <a href="#about" aria-label="Scroll to about" className="mx-auto mb-8 flex h-10 w-6 justify-center rounded-full border-2 border-navy pt-2">
+        <span className="h-2 w-1 rounded-full bg-navy animate-wheel" />
+      </a>
     </section>
   );
 }
