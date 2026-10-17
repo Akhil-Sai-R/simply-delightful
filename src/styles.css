@@ -114,6 +114,16 @@
 @media (max-width: 767px) {
   .hero-art { height: 290px; top: auto; bottom: 100px; object-fit: cover; object-position: right center; opacity: 0.24; }
   .hero-copy { max-width: 100%; }
+  .hero-modern > div { padding-top: 32px; padding-bottom: 24px; }
+  .hero-copy h1 { font-size: 40px; }
+  .hero-copy > div:first-child { margin-bottom: 20px; }
+  .hero-copy > p:nth-of-type(3) { font-size: 14px; }
+  .hero-copy > div:nth-last-child(2) { margin-top: 20px; }
+  .hero-copy > div:last-child { margin-top: 20px; }
+  .hero-modern > div > div:last-child { margin-top: 28px; padding-top: 20px; }
+  .hero-modern > div > div:last-child > div { column-gap: 24px; }
+  .hero-modern > div > div:last-child > div > div:last-child p:first-child { font-size: 22px; }
+  .hero-modern > div > div:last-child > div > div:last-child p:last-child { max-width: 190px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-copy { animation: none; }
