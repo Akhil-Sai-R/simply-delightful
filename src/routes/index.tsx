@@ -143,7 +143,6 @@ function Hero() {
               className="h-full w-full rounded-full object-cover"
             />
           </div>
-          </div>
           <Badge className="left-[12%] top-[2%] bg-navy text-navy-foreground" label="Generative AI"><Brain className="h-8 w-8" /></Badge>
           <Badge className="right-0 top-[22%] bg-primary text-primary-foreground [animation-delay:1.5s]" label="Computer Vision"><Eye className="h-8 w-8" /></Badge>
           <Badge className="bottom-[22%] left-0 bg-card text-primary [animation-delay:3s]" label="Edge AI"><Cpu className="h-8 w-8" /></Badge>
