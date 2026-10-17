@@ -286,7 +286,6 @@ function ProjectCard({ p }: { p: Project }) {
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
         {open && (
           <div className="mt-4 space-y-3 text-sm">
-
             {p.title === "Cybersecurity GenAI Co-Pilot" && (
               <div className="overflow-hidden rounded-xl border border-border">
                 <img
@@ -297,7 +296,20 @@ function ProjectCard({ p }: { p: Project }) {
                 />
               </div>
             )}
+
+            {p.title === "Multimodal Logistics Optimization Platform" && (
+              <div className="overflow-hidden rounded-xl border border-border">
+                <img
+                  src="https://i.postimg.cc/ZKWLs1WH/image-(17).png"
+                  alt="Multimodal Logistics Optimization Platform dashboard"
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
+
             {p.capabilities && (
+
               <div>
                 <p className="font-semibold text-foreground">Key capabilities</p>
                 <ul className="mt-1 list-disc pl-5 text-muted-foreground">{p.capabilities.map((c) => <li key={c}>{c}</li>)}</ul>
