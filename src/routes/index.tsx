@@ -9,7 +9,7 @@ import {
   type Filter, type Project,
 } from "@/data/portfolio";
 
-const TITLE = "Akhil Sai Ravi Kumar | Senior AI & Software Engineer";
+const TITLE = "Akhil Sai Ravi Kumar | Senior AI & Software Developer";
 const DESC =
   "Explore the portfolio of Akhil Sai Ravi Kumar, a Senior AI and Software Engineer specializing in Generative AI, agentic systems, machine learning, computer vision, robotics, edge AI, and production AI engineering.";
 
