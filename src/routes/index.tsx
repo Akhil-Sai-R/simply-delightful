@@ -286,6 +286,17 @@ function ProjectCard({ p }: { p: Project }) {
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
         {open && (
           <div className="mt-4 space-y-3 text-sm">
+
+            {p.title === "Cybersecurity GenAI Co-Pilot" && (
+              <div className="overflow-hidden rounded-xl border border-border">
+                <img
+                  src="https://i.postimg.cc/qM675L49/Asset-UI-(1).jpg"
+                  alt="Cybersecurity GenAI Co-Pilot interface"
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
             {p.capabilities && (
               <div>
                 <p className="font-semibold text-foreground">Key capabilities</p>
