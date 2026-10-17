@@ -94,27 +94,3 @@
 @utility animate-floaty { animation: floaty 6s ease-in-out infinite; }
 @keyframes wheel { 0% { transform: translateY(0); opacity: 1 } 100% { transform: translateY(10px); opacity: 0 } }
 @utility animate-wheel { animation: wheel 1.6s ease-in-out infinite; }
-
-:root { --cyan: oklch(0.75 0.14 220); }
-@theme inline { --color-cyan: var(--cyan); }
-@utility text-gradient {
-  background-image: var(--gradient-ring);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-@utility bg-grid {
-  background-image:
-    linear-gradient(oklch(0.58 0.2 268 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.58 0.2 268 / 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse at 60% 40%, black 30%, transparent 75%);
-}
-@keyframes blob { 0%,100% { transform: translate(0,0) scale(1) } 50% { transform: translate(40px,30px) scale(1.1) } }
-@utility animate-blob { animation: blob 14s ease-in-out infinite; }
-@keyframes rise { from { opacity: 0; transform: translateY(24px) } to { opacity: 1; transform: none } }
-@utility animate-rise { animation: rise 0.8s cubic-bezier(.2,.7,.2,1) both; }
-@utility animate-spin-slow { animation: spin 40s linear infinite; }
-@keyframes marquee { to { transform: translateX(-50%) } }
-@utility animate-marquee { animation: marquee 35s linear infinite; }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }

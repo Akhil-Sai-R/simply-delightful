@@ -94,90 +94,63 @@ function Badge({ className, children, label }: { className: string; children: Re
 function Hero() {
   return (
     <section id="home" className="relative overflow-hidden bg-hero">
-      <div aria-hidden className="pointer-events-none absolute -left-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-primary/20 blur-3xl animate-blob" />
-      <div aria-hidden className="pointer-events-none absolute -right-24 top-1/3 h-[24rem] w-[24rem] rounded-full bg-cyan/20 blur-3xl animate-blob [animation-delay:4s]" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid" />
-
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 md:grid-cols-[1.15fr_1fr] md:py-28">
-        <div className="animate-rise">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/70 px-4 py-1.5 text-xs font-semibold text-accent-foreground shadow-card backdrop-blur">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
-            Open to AI engineering & research collaborations
-          </span>
-
-          <h1 className="mt-6 font-display text-5xl font-light leading-[1.05] tracking-tight text-navy md:text-7xl">
-            I'm <span className="font-bold">Akhil Sai</span>
-            <br />
-            <span className="text-gradient font-bold">Ravi Kumar</span>
+      <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 md:grid-cols-2 md:py-28">
+        <div>
+          <p className="font-display text-lg font-medium text-primary">Hello</p>
+          <h1 className="mt-2 font-display text-5xl font-light leading-tight text-navy md:text-6xl">
+            I'm <span className="font-bold">{profile.name}</span>
           </h1>
-          <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 font-display text-xl text-navy md:text-2xl">
+          <p className="mt-4 font-display text-2xl text-navy">
             Senior AI & Software <span className="text-primary">Engineer</span>
-            <span className="inline-flex items-center gap-1 text-sm text-muted-foreground"><MapPin className="h-4 w-4" />{profile.location}</span>
           </p>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            <b className="font-semibold text-foreground">Building Intelligent AI Systems for Real-World Impact.</b>{" "}
-            Specializing in Generative AI, Agentic Systems, Computer Vision, and Production-Ready Machine Learning.
+          <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+            <MapPin className="h-4 w-4" /> {profile.location}
           </p>
-
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a href="#projects" className="group inline-flex items-center gap-2 rounded-full bg-ring px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-float transition-transform hover:-translate-y-0.5">
-              Explore My Projects <ArrowUp className="h-4 w-4 rotate-45 transition-transform group-hover:rotate-90" />
+          <p className="mt-6 font-display text-xl font-semibold text-foreground">
+            Building Intelligent AI Systems for Real-World Impact.
+          </p>
+          <p className="mt-3 max-w-lg leading-relaxed text-muted-foreground">
+            Senior AI & Software Engineer specializing in Generative AI, Agentic Systems, Computer Vision, and Production-Ready Machine Learning — with 8+ years turning complex requirements into scalable, reliable systems.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#projects" className="rounded-full bg-navy px-7 py-3 text-sm font-semibold text-navy-foreground transition-transform hover:-translate-y-0.5">
+              Explore My Projects
             </a>
-            <a href="#contact" className="rounded-full border border-border bg-card/70 px-7 py-3.5 text-sm font-semibold text-navy backdrop-blur transition-colors hover:border-primary hover:text-primary">
+            <a href="#contact" className="rounded-full border border-navy px-7 py-3 text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-navy-foreground">
               Contact Me
             </a>
-            <div className="flex items-center gap-2">
-              <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/70 text-navy transition-colors hover:border-primary hover:text-primary"><Linkedin className="h-4 w-4" /></a>
-              <a href={`mailto:${profile.email}`} aria-label="Email" className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/70 text-navy transition-colors hover:border-primary hover:text-primary"><Mail className="h-4 w-4" /></a>
+            <div className="flex items-center gap-3 pl-1">
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-navy hover:text-primary"><Linkedin className="h-5 w-5" /></a>
+              <a href={`mailto:${profile.email}`} aria-label="Email" className="text-navy hover:text-primary"><Mail className="h-5 w-5" /></a>
             </div>
           </div>
-
-          <dl className="mt-12 grid max-w-lg grid-cols-3 divide-x divide-border rounded-2xl border border-border bg-card/60 py-4 shadow-card backdrop-blur">
-            {[["8+", "Years experience"], ["4", "Companies"], ["7", "Featured projects"]].map(([v, l]) => (
-              <div key={l} className="px-4 text-center">
-                <dt className="font-display text-2xl font-bold text-navy">{v}</dt>
-                <dd className="text-xs text-muted-foreground">{l}</dd>
-              </div>
+          <div className="mt-10 flex flex-wrap gap-2">
+            {["GenAI", "Computer Vision", "MLOps", "Edge AI"].map((t) => (
+              <span key={t} className="rounded-full bg-accent px-4 py-1.5 text-xs font-semibold text-accent-foreground">{t}</span>
             ))}
-          </dl>
+          </div>
         </div>
 
-        <div className="relative mx-auto aspect-square w-full max-w-md animate-rise [animation-delay:150ms]">
-          <div aria-hidden className="absolute inset-[6%] rounded-full border border-dashed border-primary/30 animate-spin-slow" />
-          <div aria-hidden className="absolute inset-0 rounded-full border border-primary/10" />
-          <div className="absolute inset-[14%] rounded-[2.5rem] bg-ring p-1.5 shadow-float rotate-3">
-            <div className="flex h-full w-full -rotate-3 flex-col items-center justify-center gap-2 rounded-[2.2rem] bg-soft text-muted-foreground">
+        <div className="relative mx-auto aspect-square w-full max-w-md">
+          <svg className="absolute inset-0 h-full w-full text-primary/30" viewBox="0 0 400 400" fill="none" aria-hidden>
+            <path d="M80 60 C 200 20, 340 40, 360 160 S 330 360, 200 370 S 30 300, 40 190 S 60 90, 80 60Z" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M100 80 C 210 50, 320 70, 340 170 S 300 340, 200 345 S 60 290, 65 190 S 80 110, 100 80Z" stroke="currentColor" strokeWidth="1" />
+          </svg>
+          <div className="absolute inset-[14%] rounded-full bg-ring p-1.5 shadow-card">
+            <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-full bg-soft text-muted-foreground">
               <User className="h-20 w-20 text-primary/50" />
               <span className="text-xs font-medium">Portrait coming soon</span>
             </div>
           </div>
-          <Badge className="left-[6%] top-[4%] bg-navy text-navy-foreground" label="Generative AI"><Brain className="h-8 w-8" /></Badge>
-          <Badge className="right-0 top-[24%] bg-primary text-primary-foreground [animation-delay:1.5s]" label="Computer Vision"><Eye className="h-8 w-8" /></Badge>
-          <Badge className="bottom-[26%] left-0 bg-card text-primary [animation-delay:3s]" label="Edge AI"><Cpu className="h-8 w-8" /></Badge>
-          <div className="absolute bottom-[2%] right-[4%] flex items-center gap-3 rounded-2xl border border-border bg-card/90 px-4 py-3 shadow-float backdrop-blur animate-floaty [animation-delay:2s]">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground"><Server className="h-5 w-5" /></span>
-            <div>
-              <p className="text-sm font-semibold text-navy">ASTRIAL GmbH</p>
-              <p className="text-xs text-muted-foreground">GenAI · Research Engineer</p>
-            </div>
-          </div>
+          <Badge className="left-[12%] top-[2%] bg-navy text-navy-foreground" label="Generative AI"><Brain className="h-8 w-8" /></Badge>
+          <Badge className="right-0 top-[22%] bg-primary text-primary-foreground [animation-delay:1.5s]" label="Computer Vision"><Eye className="h-8 w-8" /></Badge>
+          <Badge className="bottom-[22%] left-0 bg-card text-primary [animation-delay:3s]" label="Edge AI"><Cpu className="h-8 w-8" /></Badge>
+          <Badge className="bottom-[4%] right-[14%] bg-card text-navy [animation-delay:2s]" label="MLOps"><Server className="h-8 w-8" /></Badge>
         </div>
       </div>
-
-      <div className="relative border-y border-border/60 bg-card/50 py-4 backdrop-blur">
-        <div className="flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
-          <div className="flex shrink-0 animate-marquee gap-10 pr-10 font-display text-sm font-medium text-muted-foreground">
-            {[...Array(2)].flatMap((_, k) =>
-              ["Generative AI", "LLMs & RAG", "Agentic Systems", "Computer Vision", "Edge AI", "MLOps", "PyTorch", "LangChain", "CUDA · TensorRT", "Kubernetes"].map((t) => (
-                <span key={`${k}-${t}`} className="flex items-center gap-10 whitespace-nowrap">{t}<span className="h-1.5 w-1.5 rounded-full bg-primary" /></span>
-              )),
-            )}
-          </div>
-        </div>
-      </div>
+      <a href="#about" aria-label="Scroll to about" className="mx-auto mb-8 flex h-10 w-6 justify-center rounded-full border-2 border-navy pt-2">
+        <span className="h-2 w-1 rounded-full bg-navy animate-wheel" />
+      </a>
     </section>
   );
 }
