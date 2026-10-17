@@ -308,6 +308,53 @@ function ProjectCard({ p }: { p: Project }) {
               </div>
             )}
 
+            {p.title === "Drone-Based Abnormal Activity Detection" && (
+              <div className="overflow-hidden rounded-xl border border-border">
+                <img
+                  src="https://i.postimg.cc/Z5cXFWCC/collage-maker.png"
+                  alt="Drone-Based Abnormal Activity Detection system"
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
+
+            {/* Parcel Inspection System */}
+            {p.title === "Parcel Inspection System" && (
+              <div className="overflow-hidden rounded-xl border border-border">
+                <img
+                  src="https://i.postimg.cc/5tQq9Gck/X-Ray-Module.png"
+                  alt="Parcel Inspection System X-Ray Module"
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
+
+            {/* MOWME */}
+            {p.title.includes("MOWME") && (
+              <div className="overflow-hidden rounded-xl border border-border">
+                <img
+                  src="https://i.postimg.cc/wMghVjtj/Mowme-(1).png"
+                  alt="MOWME autonomous rover project"
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
+
+            {/* Web-Based CNN */}
+            {p.title.toLowerCase().includes("web-based cnn") && (
+              <div className="overflow-hidden rounded-xl border border-border">
+                <img
+                  src="https://i.postimg.cc/K8wBWNKq/Master-thesis-(1).jpg"
+                  alt="Web-Based CNN Training and Testing Platform"
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
+
             {p.capabilities && (
 
               <div>
