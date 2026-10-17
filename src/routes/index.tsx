@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent, type ReactNode } from "react";
 import {
   Mail, Phone, Linkedin, MapPin, ArrowUp, Menu, X, Brain, Eye, Server, Cpu, Shield, Map, Plane,
-  Layers, ScanLine, Bot, GraduationCap, Award, BookOpen, ExternalLink, ChevronDown, User, Languages, Send,
+  Layers, ScanLine, Bot, GraduationCap, Award, BookOpen, ExternalLink, ChevronDown, Languages, Send,
 } from "lucide-react";
 import {
   profile, nav, expertise, journey, skills, experience, projects, filters, certifications, languages,
@@ -137,10 +137,12 @@ function Hero() {
             <path d="M100 80 C 210 50, 320 70, 340 170 S 300 340, 200 345 S 60 290, 65 190 S 80 110, 100 80Z" stroke="currentColor" strokeWidth="1" />
           </svg>
           <div className="absolute inset-[14%] rounded-full bg-ring p-1.5 shadow-card">
-            <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-full bg-soft text-muted-foreground">
-              <User className="h-20 w-20 text-primary/50" />
-              <span className="text-xs font-medium">Portrait coming soon</span>
-            </div>
+            <img
+              src="https://i.postimg.cc/fLTB5knT/Friendly-Blue-Shirt-Studio-Portrait.png"
+              alt="Akhil Sai Ravi Kumar"
+              className="h-full w-full rounded-full object-cover"
+            />
+          </div>
           </div>
           <Badge className="left-[12%] top-[2%] bg-navy text-navy-foreground" label="Generative AI"><Brain className="h-8 w-8" /></Badge>
           <Badge className="right-0 top-[22%] bg-primary text-primary-foreground [animation-delay:1.5s]" label="Computer Vision"><Eye className="h-8 w-8" /></Badge>
