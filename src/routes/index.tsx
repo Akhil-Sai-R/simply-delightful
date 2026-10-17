@@ -320,7 +320,7 @@ function ProjectCard({ p }: { p: Project }) {
             )}
 
             {/* Parcel Inspection System */}
-            {p.title === "Parcel Inspection System" && (
+            {p.title.toLowerCase().includes("parcel") && (
               <div className="overflow-hidden rounded-xl border border-border">
                 <img
                   src="https://i.postimg.cc/5tQq9Gck/X-Ray-Module.png"
