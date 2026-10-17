@@ -35,6 +35,9 @@
   --color-navy: var(--navy);
   --color-navy-foreground: var(--navy-foreground);
   --color-soft: var(--soft);
+  --color-hero-ink: var(--hero-ink);
+  --color-hero-muted: var(--hero-muted);
+  --color-hero-line: var(--hero-line);
 }
 
 :root {
@@ -61,6 +64,10 @@
   --navy: oklch(0.3 0.07 250);
   --navy-foreground: oklch(0.98 0.005 250);
   --soft: oklch(0.975 0.008 262);
+  --hero-background: oklch(0.91 0.006 260);
+  --hero-ink: oklch(0.24 0.025 260);
+  --hero-muted: oklch(0.45 0.025 260);
+  --hero-line: oklch(0.24 0.025 260 / 0.16);
   --shadow-card: 0 10px 40px -18px oklch(0.3 0.07 250 / 0.25);
   --shadow-float: 0 18px 40px -16px oklch(0.3 0.07 250 / 0.4);
   --gradient-hero: linear-gradient(135deg, oklch(1 0 0) 0%, oklch(0.97 0.012 262) 100%);
@@ -94,3 +101,30 @@
 @utility animate-floaty { animation: floaty 6s ease-in-out infinite; }
 @keyframes wheel { 0% { transform: translateY(0); opacity: 1 } 100% { transform: translateY(10px); opacity: 0 } }
 @utility animate-wheel { animation: wheel 1.6s ease-in-out infinite; }
+
+.hero-modern { background: var(--hero-background); }
+.hero-copy { animation: hero-reveal 650ms ease-out both; }
+@keyframes hero-reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (min-width: 768px) {
+  .hero-art { object-position: center 45%; }
+}
+@media (max-width: 767px) {
+  .hero-art { height: 290px; top: auto; bottom: 100px; object-fit: cover; object-position: right center; opacity: 0.24; }
+  .hero-copy { max-width: 100%; }
+  .hero-modern > div { padding-top: 32px; padding-bottom: 24px; }
+  .hero-copy h1 { font-size: 40px; }
+  .hero-copy > div:first-child { margin-bottom: 20px; }
+  .hero-copy > p:nth-of-type(3) { font-size: 14px; }
+  .hero-copy > div:nth-last-child(2) { margin-top: 20px; }
+  .hero-copy > div:last-child { margin-top: 20px; }
+  .hero-modern > div > div:last-child { margin-top: 28px; padding-top: 20px; }
+  .hero-modern > div > div:last-child > div { column-gap: 24px; }
+  .hero-modern > div > div:last-child > div > div:last-child p:first-child { font-size: 22px; }
+  .hero-modern > div > div:last-child > div > div:last-child p:last-child { max-width: 190px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy { animation: none; }
+}
